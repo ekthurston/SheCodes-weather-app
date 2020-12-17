@@ -27,7 +27,9 @@ button {
   padding-top: 30px;
   border-radius: 8px;
 }
-
+#open-source {
+  font-family: monospace;
+}
 .search,
 .fa-cloud-rain,
 .chance {
