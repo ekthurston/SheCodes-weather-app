@@ -75,7 +75,7 @@ let sunriseTime = (response.data.sys.sunrise);
     minutes = `0${minutes}`;
   }
     let sunrise = document.querySelector(".sunrise");
-    sunrise.innerHTML = ` Sunrise: ${hours}:${minutes}`;
+    sunrise.innerHTML = `Sunrise: ${hours}:${minutes}`;
     
     let sunsetTime = (response.data.sys.sunset);
     var date = new Date (sunsetTime *1000);
@@ -155,11 +155,8 @@ function getLocation(position) {
 
   axios.get(`${apiUrl}`).then(showTemperature);
 }
-
-
 function searchLocation() {
   navigator.geolocation.getCurrentPosition(getLocation);
 }
-
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", searchLocation);
