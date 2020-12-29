@@ -127,9 +127,9 @@ function showTemperature(response) {
     weather.innerHTML = `${weatherDescription}`;
 
     let sunriseTime = (response.data.sys.sunrise);
-    let date = new Date (sunriseTime *1000);
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
+    var date = new Date (sunriseTime *1000);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
     if (minutes < 10) {
     minutes = `0${minutes}`;
     }
@@ -137,9 +137,9 @@ function showTemperature(response) {
     sunrise.innerHTML = ` Sunrise: ${hours}:${minutes}`;
     
     let sunsetTime = (response.data.sys.sunset);
-    let date = new Date (sunsetTime *1000);
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
+    var date = new Date (sunsetTime *1000);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
     if (minutes < 10) {
     minutes = `0${minutes}`;
     }
