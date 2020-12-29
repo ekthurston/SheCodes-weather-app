@@ -8,6 +8,7 @@ let hour = now.getHours();
 if (hour < 10) {
     hour = `0${hour}`;
   }
+  
 let minutes = now.getMinutes();
 if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -65,6 +66,26 @@ console.log(response)
 let weatherDescription = (response.data.weather[0].main)
 let weather = document.querySelector("#weather-description");
 weather.innerHTML = `${weatherDescription}`
+
+let sunriseTime = (response.data.sys.sunrise);
+    var date = new Date (sunriseTime *1000);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+    let sunrise = document.querySelector(".sunrise");
+    sunrise.innerHTML = ` Sunrise: ${hours}:${minutes}`;
+    
+    let sunsetTime = (response.data.sys.sunset);
+    var date = new Date (sunsetTime *1000);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+    let sunset = document.querySelector(".sunset");
+    sunset.innerHTML = ` Sunset: ${hours}:${minutes}`;
 }
 
 function showCity(event) {
@@ -105,11 +126,25 @@ function showTemperature(response) {
     let weather = document.querySelector("#weather-description");
     weather.innerHTML = `${weatherDescription}`;
 
-    let sunriseTime = (response.data.sys.sunrise * 1000);
+    let sunriseTime = (response.data.sys.sunrise);
+    let date = new Date (sunriseTime *1000);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+    minutes = `0${minutes}`;
+    }
     let sunrise = document.querySelector(".sunrise");
-    sunrise.innerHTML = ` Sunrise: ${sunriseTime}`;
+    sunrise.innerHTML = ` Sunrise: ${hours}:${minutes}`;
     
-
+    let sunsetTime = (response.data.sys.sunset);
+    let date = new Date (sunsetTime *1000);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+    minutes = `0${minutes}`;
+    }
+    let sunset = document.querySelector(".sunset");
+    sunset.innerHTML = ` Sunset: ${hours}:${minutes}`;
 }
 
 function getLocation(position) {
