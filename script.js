@@ -54,20 +54,6 @@ celcius.addEventListener("click", displayCTemp);
 
 let celsiusTemperature = null;
 
-//function displayFTemp(event){
-   // event.preventDefault();
-//let fahrenhiet= 66;
-    //let temperature = document.querySelector("#temperature");
-    //temperature.innerHTML=`${fahrenhiet}℉`;
-//}
-
-
-
-//let fahrenhietTemp = (response.data.main.temp);
-//let fTemp = (fahrenhietTemp * 9/5+32);
-//let tempSelect = document.querySelector("#temperature");
-//tempSelect.innerHTML=`${fTemp}℉`;
-
 //City search location
 
 function showTemp(response) {
@@ -81,8 +67,6 @@ let displayTemp = Math.round(celsiusTemperature);
 let temperature = document.querySelector("#temperature")
 temperature.innerHTML=`${displayTemp}℃`
 console.log(response)
-
-
 
 let weatherDescription = (response.data.weather[0].main)
 let weather = document.querySelector("#weather-description");
