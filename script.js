@@ -31,37 +31,58 @@ day.innerHTML = `${date} ${month} ${weekday}`
 time.innerHTML =  `${hour}:${minutes}`
 
 // Celcius and Fahrenhiet
-function displayCTemp(event){
-    event.preventDefault();
-    let temperature = document.querySelector("#temperature");
-    let celcius = 19;
-    temperature.innerHTML=`${celcius}℃`;
+
+function displayFTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let fTemp = Math.round (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${fTemp}℉`
+}
+
+let fahrenhiet = document.querySelector("#fahrenheit-link");
+fahrenhiet.addEventListener("click", displayFTemp);
+
+function displayCTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let cTemp = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = `${cTemp}℃`
 }
 
 let celcius = document.querySelector("#celcius-link");
 celcius.addEventListener("click", displayCTemp);
 
-function displayFTemp(event){
-    event.preventDefault();
-    let fahrenhiet= 66;
-    let temperature = document.querySelector("#temperature");
-    temperature.innerHTML=`${fahrenhiet}℉`;
-}
+let celsiusTemperature = null;
 
- let fahrenhiet = document.querySelector("#fahrenheit-link");
-fahrenhiet.addEventListener("click", displayFTemp);
+//function displayFTemp(event){
+   // event.preventDefault();
+//let fahrenhiet= 66;
+    //let temperature = document.querySelector("#temperature");
+    //temperature.innerHTML=`${fahrenhiet}℉`;
+//}
+
+
+
+//let fahrenhietTemp = (response.data.main.temp);
+//let fTemp = (fahrenhietTemp * 9/5+32);
+//let tempSelect = document.querySelector("#temperature");
+//tempSelect.innerHTML=`${fTemp}℉`;
 
 //City search location
 
 function showTemp(response) {
 let input = document.querySelector("#search-input");
 let city =  document.querySelector("h1");
-city.innerHTML = `${input.value}`
+city.innerHTML = `${input.value}`;
 
-let displayTemp = Math.round(response.data.main.temp);
+celsiusTemperature = response.data.main.temp;
+
+let displayTemp = Math.round(celsiusTemperature);
 let temperature = document.querySelector("#temperature")
 temperature.innerHTML=`${displayTemp}℃`
 console.log(response)
+
+
 
 let weatherDescription = (response.data.weather[0].main)
 let weather = document.querySelector("#weather-description");
@@ -145,6 +166,8 @@ function showTemperature(response) {
     }
     let sunset = document.querySelector(".sunset");
     sunset.innerHTML = ` Sunset: ${hours}:${minutes}`;
+
+
 }
 
 function getLocation(position) {
