@@ -35,8 +35,9 @@ time.innerHTML =  `${hour}:${minutes}`
 function displayFTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  let fTemp = Math.round (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = `${fTemp}℉`
+  let fTemp = (celsiusTemperature * 9) / 5 + 32;
+  let fDisplay = Math.round(fTemp);
+  temperatureElement.innerHTML = `${fDisplay}℉`
 }
 
 let fahrenhiet = document.querySelector("#fahrenheit-link");
@@ -119,7 +120,10 @@ let form = document.querySelector("#search-bar");
 form.addEventListener("submit", citySearch);
 
 function showTemperature(response) {
-    let displayTemp = Math.round(response.data.main.temp);
+
+  celsiusTemperature = response.data.main.temp;
+
+    let displayTemp = Math.round(celsiusTemperature);
     let temperature = document.querySelector("#temperature");
     temperature.innerHTML=`${displayTemp}℃`;
 
