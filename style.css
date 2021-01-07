@@ -1,11 +1,11 @@
 body {
   margin: 0 auto;
   max-width: 650px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 h1 {
   font-weight: bolder;
-  color: #ff5421;
+  color: #ff521d;
   font-size: 50px;
   border: solid #cecdd3 1px;
   padding: 12px;
@@ -57,7 +57,7 @@ button {
   margin-top: 60px;
   position: relative;
   top: 25px;
-  color: #100368;
+  color: #403e4d;
 }
 
 .chance,
@@ -66,17 +66,10 @@ button {
 }
 #temperature {
   font-size: 50px;
-  color: #341de2;
+  color: #84838a;
 }
 #weather-description {
   font-size: 30px;
-}
-.fa-sun {
-  position: relative;
-  left: 30px;
-  top: 10px;
-  padding-right: 0;
-  color: #100368;
 }
 
 .sunrise,
@@ -94,7 +87,7 @@ button {
 #date-time,
 #time {
   font-size: 16px;
-  color: #100368;
+  color: #403e4d;
   font-weight: bolder;
   position: relative;
   right: 20px;
@@ -107,9 +100,8 @@ button {
   bottom: 10px;
 }
 .row {
-  margin-left: 40px;
+  margin-left: 35px;
 }
-
 .col {
   padding: 0;
   margin: 0px 0 10px 0;
@@ -131,6 +123,7 @@ button {
   margin-bottom: 15px;
 }
 .weather-forecast {
+  max-width: 650px;
   margin-top: 20px;
   padding: 12px;
   border-radius: 20px;
