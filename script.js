@@ -25,9 +25,9 @@ date = `${date}st`;
 }
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 let month = months[now.getMonth()];
-let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 let weekday = weekdays[now.getDay()];
-day.innerHTML = `${date} ${month} ${weekday}`
+day.innerHTML = `${weekday}, ${date} ${month} `
 time.innerHTML =  `${hour}:${minutes}`
 
 // Celcius and Fahrenhiet
@@ -80,7 +80,7 @@ let sunriseTime = (response.data.sys.sunrise);
     if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-    let sunrise = document.querySelector(".sunrise");
+    let sunrise = document.querySelector(".sunrise-time");
     sunrise.innerHTML = `Sunrise: ${hours}:${minutes}`;
     
     let sunsetTime = (response.data.sys.sunset);
@@ -90,8 +90,15 @@ let sunriseTime = (response.data.sys.sunrise);
     if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-    let sunset = document.querySelector(".sunset");
-    sunset.innerHTML = ` Sunset: ${hours}:${minutes}`;
+    let sunset = document.querySelector(".sunset-time");
+    sunset.innerHTML = `${hours}:${minutes}`
+
+    let iconElement = document.querySelector("#weather-icon");
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+}
+
+function displayForecast (response){
+  console.log(response)
 }
 
 function showCity(event) {
@@ -101,8 +108,10 @@ let city = `${input.value}`
 let apiKey = "b318c179003d64fe70de737d79d84778";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-
 axios.get(`${apiUrl}`).then(showTemp);
+
+apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
+axios.get(`${apiUrl}`).then(displayForecast);
 }
 
 let formLocation = document.querySelector("#search-bar");
@@ -155,7 +164,8 @@ function showTemperature(response) {
     let sunset = document.querySelector(".sunset");
     sunset.innerHTML = ` Sunset: ${hours}:${minutes}`;
 
-
+    let iconElement = document.querySelector("#weather-icon");
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function getLocation(position) {
