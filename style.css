@@ -23,10 +23,7 @@ button {
   font-size: smaller;
   font-family: "Roboto", sans-serif;
 }
-.search {
-  padding-top: 30px;
-  border-radius: 8px;
-}
+
 .submit,
 .current-location {
   width: 100px;
@@ -43,7 +40,7 @@ button {
 #open-source {
   font-family: monospace;
 }
-.search,
+
 #weather-icon,
 .chance {
   text-align: center;
@@ -102,6 +99,7 @@ button {
   position: relative;
   right: 20px;
   bottom: 10px;
+  top: 20px;
 }
 #time {
   position: relative;
@@ -148,4 +146,8 @@ button {
 .city {
   margin-top: 10px;
   text-align: left;
+}
+#search-bar {
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
