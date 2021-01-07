@@ -99,10 +99,40 @@ let sunriseTime = (response.data.sys.sunrise);
 
 }
 
-function displayForecast (response){
-  console.log(response)
+function formatHours (timestamp){
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  
+let mins = now.getMinutes();
+if (mins < 10) {
+    mins = `0${mins}`;
+  }
+  return `${hours}:${mins}`;
 }
 
+function displayForecast (response){
+let forecastElement = document.querySelector("#forecast");
+let forecast = null;
+forecastElement.innerHTML = null;
+
+for (let index = 0; index < 6; index++) {
+forecast = response.data.list[index];
+
+forecastElement.innerHTML += 
+`<div class="col-2">
+                <h4>
+                   ${formatHours(forecast.dt * 1000)}
+                </h4>
+                <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+                <div class="weather-forecast-temp">
+                    <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°
+                </div>
+            </div>`;
+}
+}
 function showCity(event) {
   event.preventDefault();
 let input = document.querySelector("#search-input")
