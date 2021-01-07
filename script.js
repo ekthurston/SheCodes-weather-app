@@ -81,7 +81,7 @@ let sunriseTime = (response.data.sys.sunrise);
     minutes = `0${minutes}`;
   }
     let sunrise = document.querySelector(".sunrise-time");
-    sunrise.innerHTML = `Sunrise: ${hours}:${minutes}`;
+    sunrise.innerHTML = `${hours}:${minutes}`;
     
     let sunsetTime = (response.data.sys.sunset);
     var date = new Date (sunsetTime *1000);
@@ -95,6 +95,8 @@ let sunriseTime = (response.data.sys.sunrise);
 
     let iconElement = document.querySelector("#weather-icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("alt", response.data.weather[0].main)
+
 }
 
 function displayForecast (response){
@@ -151,8 +153,8 @@ function showTemperature(response) {
     if (minutes < 10) {
     minutes = `0${minutes}`;
     }
-    let sunrise = document.querySelector(".sunrise");
-    sunrise.innerHTML = ` Sunrise: ${hours}:${minutes}`;
+    let sunrise = document.querySelector(".sunrise-time");
+    sunrise.innerHTML = `${hours}:${minutes}`;
     
     let sunsetTime = (response.data.sys.sunset);
     var date = new Date (sunsetTime *1000);
@@ -160,13 +162,14 @@ function showTemperature(response) {
     var minutes = date.getMinutes();
     if (minutes < 10) {
     minutes = `0${minutes}`;
-    }
-    let sunset = document.querySelector(".sunset");
-    sunset.innerHTML = ` Sunset: ${hours}:${minutes}`;
+  }
+    let sunset = document.querySelector(".sunset-time");
+    sunset.innerHTML = `${hours}:${minutes}`
 
     let iconElement = document.querySelector("#weather-icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-}
+    iconElement.setAttribute("alt", response.data.weather[0].main)
+  }
 
 function getLocation(position) {
   let lat = position.coords.latitude;

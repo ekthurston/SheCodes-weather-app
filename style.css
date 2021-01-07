@@ -44,7 +44,7 @@ button {
   font-family: monospace;
 }
 .search,
-.fa-cloud-rain,
+#weather-icon,
 .chance {
   text-align: center;
   display: block;
@@ -55,17 +55,14 @@ button {
   border-radius: 10px;
   background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
-.fa-cloud-rain,
+#weather-icon,
 .chance {
   margin-top: 60px;
   position: relative;
   top: 25px;
   color: #100368;
 }
-.fa-cloud-rain {
-  font-size: 85px;
-  color: #341de2;
-}
+
 .chance,
 .fa-sun {
   font-size: 30px;
@@ -84,25 +81,33 @@ button {
   padding-right: 0;
   color: #100368;
 }
+
 .sunrise,
 .sunset,
-.date {
+.col-1 {
   font-size: smaller;
-  text-align: left;
   padding-right: 0;
   font-size: 12px;
   margin-bottom: 5px;
+  position: relative;
+  top: 30px;
+  right: 20px;
 }
-.date,
+
+#date-time,
 #time {
   font-size: 16px;
   color: #100368;
   font-weight: bolder;
+  position: relative;
+  right: 20px;
+  bottom: 10px;
 }
-.city {
-  margin-top: 10px;
+#time {
+  position: relative;
+  right: 50px;
+  bottom: 10px;
 }
-
 .row {
   margin-left: 40px;
 }
@@ -139,4 +144,8 @@ button {
 }
 .units {
   margin-top: 40px;
+}
+.city {
+  margin-top: 10px;
+  text-align: left;
 }
