@@ -57,18 +57,19 @@ button {
   position: relative;
   top: 25px;
   color: #403e4d;
-}
-
-.chance,
-.fa-sun {
   font-size: 30px;
 }
+
 #temperature {
   font-size: 50px;
   color: #84838a;
 }
 #weather-description {
   font-size: 30px;
+}
+#weather-icon {
+  height: 150px;
+  width: 60%;
 }
 
 .sunrise,
@@ -111,7 +112,7 @@ button {
   top: 5px;
 }
 .units {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .city {
   margin-top: 10px;
@@ -122,8 +123,8 @@ button {
   margin-bottom: 15px;
 }
 .weather-forecast {
-  max-width: 650px;
-  margin-top: 20px;
+  max-width: 580px;
+  margin: 0px 20px 15px 20px;
   padding: 12px;
   border-radius: 20px;
   background: rgba(249, 250, 250, 0.932);
@@ -146,7 +147,7 @@ button {
   width: 48px;
 }
 
-.weather-forecast-temperature {
+.weather-forecast-temp {
   text-align: center;
   color: rgb(135, 135, 135);
   font-size: 13px;
@@ -154,4 +155,19 @@ button {
   height: auto;
   line-height: 15px;
   white-space: nowrap;
+}
+
+li,
+.elements {
+  list-style-type: none;
+  text-align: center;
+  margin: ;
+  padding-top: 0;
+  color: #303035;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 19px;
+}
+.elements {
+  margin-top: 15px;
 }

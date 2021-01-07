@@ -93,6 +93,12 @@ let sunriseTime = (response.data.sys.sunrise);
     let sunset = document.querySelector(".sunset-time");
     sunset.innerHTML = `${hours}:${minutes}`
 
+    let humidityElement = document.querySelector("#humidity");
+    humidityElement.innerHTML = response.data.main.humidity;
+
+    let windElement = document.querySelector("#wind");
+    windElement.innerHTML = Math.round(response.data.wind.speed);
+
     let iconElement = document.querySelector("#weather-icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].main)
@@ -195,6 +201,12 @@ function showTemperature(response) {
   }
     let sunset = document.querySelector(".sunset-time");
     sunset.innerHTML = `${hours}:${minutes}`
+
+    let humidityElement = document.querySelector("#humidity");
+    humidityElement.innerHTML = response.data.main.humidity;
+
+    let windElement = document.querySelector("#wind");
+    windElement.innerHTML = Math.round(response.data.wind.speed);
 
     let iconElement = document.querySelector("#weather-icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
